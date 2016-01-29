@@ -58,7 +58,8 @@ class ViewController: UIViewController {
     let url = NSURL.fileURLWithPath(path)
         
     //エラーを受け取る変数の準備
-    NSError *error = nil;
+    //NSError *error = nil;
+    var error:String? = nil
     self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
     if (error != nil) { //エラーがあった場合
     return;
@@ -74,26 +75,26 @@ class ViewController: UIViewController {
         case 0:
             // 最初の問題は丸が正解なので、正解扱いにする
             //[self seikai];//seikai時の処置を呼び出す
-            func seikai()
+            seikai()
             seikaisu++;//seikaisuを一つカウントする
             break;
         case 1:
             //[self seikai];
-            func seikai()
+            seikai()
             seikaisu++;
             break;
         case 2:
             //[self fuseikai];//fuseikai時の処置を呼び出す
-            func fuseikai()
+            fuseikai()
             break;
         case 3:
             //[self seikai];
-            func seikai()
+            seikai()
             seikaisu++;
             break;
         case 4:
             //[self fuseikai];
-            func fuseikai()
+            fuseikai()
             break;
         default:
             break;
@@ -101,7 +102,7 @@ class ViewController: UIViewController {
         // 正解でも不正解でも、次の問いに進む
         countNumber++;
         //[self showQuestion];//
-        func showQuestion()
+        showQuestion()
 
         
     }
@@ -110,25 +111,20 @@ class ViewController: UIViewController {
         switch (countNumber) {
         case 0:
             //[self fuseikai];
-            let fuseikainokannsuu = fuseikai()
-            
+            fuseikai()//不正解時の処理を呼び出す
             break;
         case 1:
-            //[self fuseikai];
-            func fuseikai()
+            fuseikai()
             break;
         case 2:
-            //[self seikai];
-            func seikai()
+            seikai()
             seikaisu++;
             break;
         case 3:
-            //[self fuseikai];
-            func fuseikai()
+            fuseikai()
             break;
         case 4:
-            //[self seikai];
-            func seikai()
+            seikai()
             seikaisu++;
             break;
         default:
@@ -136,8 +132,7 @@ class ViewController: UIViewController {
         }
         
         countNumber++;
-        //[self showQuestion];
-        let sq = showQuestion()
+        showQuestion()//shouQuestionの処理を呼び出す
         
     }
     
@@ -149,7 +144,7 @@ class ViewController: UIViewController {
     var musicName:String = "shot-struck1";
         //ダウンロードしたファイル
         //[self playSound:musicName];
-        func playsound()
+        playsound(musicName)->String
         
     }
 
@@ -161,8 +156,9 @@ class ViewController: UIViewController {
     kaitou.text = "不正解です"
     var string:String = "bomb1";
         //不正解時の音声ファイルを鳴らす
+        
         //[self playSound:string];//objective c
-        func playsound()->String;//swift
+        playsound()->String//swift
         
 }
 
@@ -192,6 +188,7 @@ class ViewController: UIViewController {
 
     
 }
+
 
 
 
