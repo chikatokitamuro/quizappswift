@@ -42,7 +42,7 @@ class ViewController: UIViewController {
         
     }
 
-    func playSound() {
+    func playSound(scaleName:NSString){
     //音楽ファイル名を作成
     /*NSString *soundFileName = [NSString stringWithFormat:@"koukaonn_%@",scaleName];*/
     let soundFileName = "koukaonn"
@@ -144,7 +144,7 @@ class ViewController: UIViewController {
     var musicName:String = "shot-struck1";
         //ダウンロードしたファイル
         //[self playSound:musicName];
-    playsound(musicName)->String
+         playsound(musicName);
         
     }
 
@@ -158,7 +158,7 @@ class ViewController: UIViewController {
         //不正解時の音声ファイルを鳴らす
         
         //[self playSound:string];//objective c
-        playsound()->String//swift
+        playsound(String);
         
 }
 
