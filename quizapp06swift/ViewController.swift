@@ -33,7 +33,7 @@ class ViewController: UIViewController {
         mondai.text = "問題１、マツコとキムタクは高校１年の時、同級生であった";//mondaiに入力
         
         [self.soundTable = "sei", "fusei"];
-        //func soundTable(sei,fusei)->String
+        
         
     }
 
@@ -144,11 +144,11 @@ class ViewController: UIViewController {
     var musicName:String = "shot-struck1";
         //ダウンロードしたファイル
         //[self playSound:musicName];
-        playsound(musicName)->String
+    playsound(musicName)->String
         
     }
 
-    }
+    
 
     
     func fuseikai() {
