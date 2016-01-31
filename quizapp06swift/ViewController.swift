@@ -21,9 +21,9 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var seikairitu: UILabel!
     
-    var countNumber:Int //問題の順番　最初の問題は０番目　case 0
+    var countNumber:Int! //問題の順番　最初の問題は０番目　case 0
     
-    var seikaisu:Double
+    var seikaisu:Double!
     
     
     
@@ -32,8 +32,8 @@ class ViewController: UIViewController {
         
         mondai.text = "問題１、マツコとキムタクは高校１年の時、同級生であった";//mondaiに入力
         
-        [self.soundTable = "sei", "fusei"];
-        
+       // [self.soundTable = "sei", "fusei"];
+        self.soundTable("sei","fusei")
         
     }
 
@@ -42,7 +42,7 @@ class ViewController: UIViewController {
         
     }
 
-    func playSound(scaleName:NSString){
+   /* func playSound(scaleName:NSString){
     //音楽ファイル名を作成
     /*NSString *soundFileName = [NSString stringWithFormat:@"koukaonn_%@",scaleName];*/
     let soundFileName = "koukaonn"
@@ -67,8 +67,20 @@ class ViewController: UIViewController {
         
     [self.player play];
         
+    }*/
+    func playSound(scaleName: String) {
+        var soundFileName = "koukaonn\(scaleName)"
+        var bundle = NSBundle.mainBundle()
+        var path = bundle.pathForResource(soundFileName, ofType: "mp3")
+        var url = NSURL.fileURLWithPath(path)
+        var error?= nil
+        self.player = AVAudioPlayer(contentsOfURL: url, error: &error)
+        if error != nil {
+            return
+        }
+        self.player.play()
     }
-
+    
     @IBAction func marubuttunaction(sender: AnyObject) {
         //maruボタンが押された時の処置
         switch  (countNumber) {
@@ -144,7 +156,7 @@ class ViewController: UIViewController {
     var musicName:String = "shot-struck1";
         //ダウンロードしたファイル
         //[self playSound:musicName];
-         playsound(musicName);
+        playsound(musicName);
         
     }
 
