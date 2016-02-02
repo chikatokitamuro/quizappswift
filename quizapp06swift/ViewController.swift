@@ -21,11 +21,12 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var seikairitu: UILabel!
     
-    var countNumber:Int! //問題の順番　最初の問題は０番目　case 0
+    var countNumber:Int!//問題の順番　最初の問題は０番目　case 0
     
-    var seikaisu:Double!
+    var seikaisu:Int!
     
     
+    var soundTable:String
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,8 +73,8 @@ class ViewController: UIViewController {
         var soundFileName = "koukaonn\(scaleName)"
         var bundle = NSBundle.mainBundle()
         var path = bundle.pathForResource(soundFileName, ofType: "mp3")
-        var url = NSURL.fileURLWithPath(path)
-        var error?= nil
+        var url = NSURL(fileURLWithPath:path)
+        var error:String? = nil
         self.player = AVAudioPlayer(contentsOfURL: url, error: &error)
         if error != nil {
             return
@@ -156,7 +157,7 @@ class ViewController: UIViewController {
     var musicName:String = "shot-struck1";
         //ダウンロードしたファイル
         //[self playSound:musicName];
-        playsound(musicName);
+        self.playsound(musicName);
         
     }
 
@@ -170,7 +171,7 @@ class ViewController: UIViewController {
         //不正解時の音声ファイルを鳴らす
         
         //[self playSound:string];//objective c
-        playsound(String);
+       self.playsound(String);
         
 }
 
