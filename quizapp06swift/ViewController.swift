@@ -21,20 +21,23 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var seikairitu: UILabel!
     
-    var countNumber:Int!//問題の順番　最初の問題は０番目　case 0
+    var countNumber = 0//問題の順番　最初の問題は０番目　case 0
     
-    var seikaisu:Int!
+    var seikaisu = 0
     
     
     var soundTable:String
     
+    var player:AVAudioPlayer!
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         mondai.text = "問題１、マツコとキムタクは高校１年の時、同級生であった";//mondaiに入力
         
        // [self.soundTable = "sei", "fusei"];
-        self.soundTable("sei","fusei")
+        var soundTableArray = [ "sei", "fusei"]//soundTable配列を作成
         
     }
 
@@ -69,18 +72,32 @@ class ViewController: UIViewController {
     [self.player play];
         
     }*/
+    
+    
     func playSound(scaleName: String) {
+        let soundFileName = "koukaonn\(scaleName)"
+        let bundle = NSBundle.mainBundle()
+        let path = bundle.pathForResource(soundFileName, ofType: "mp3")
+        let url = NSURL(fileURLWithPath:path!)
+        player = try!AVAudioPlayer(contentsOfURL: url)
+        player.delegate = self
+        player.play()
+    }
+    
+    
+    /*func playSound(scaleName: String) {
         var soundFileName = "koukaonn\(scaleName)"
         var bundle = NSBundle.mainBundle()
         var path = bundle.pathForResource(soundFileName, ofType: "mp3")
-        var url = NSURL(fileURLWithPath:path)
+        var url = NSURL(fileURLWithPath:path!)
         var error:String? = nil
         self.player = AVAudioPlayer(contentsOfURL: url, error: &error)
         if error != nil {
             return
         }
         self.player.play()
-    }
+    }*/
+    
     
     @IBAction func marubuttunaction(sender: AnyObject) {
         //maruボタンが押された時の処置
@@ -169,7 +186,6 @@ class ViewController: UIViewController {
     kaitou.text = "不正解です"
     var string:String = "bomb1";
         //不正解時の音声ファイルを鳴らす
-        
         //[self playSound:string];//objective c
        self.playsound(String);
         
