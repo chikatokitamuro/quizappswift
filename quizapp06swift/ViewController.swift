@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation//音声ライブラリの呼び出し
 
 
-class ViewController: UIViewController {
+class ViewController:UIViewController,AVAudioPlayerDelegate{
 
     @IBOutlet weak var mondai: UITextView!
     
@@ -25,8 +25,7 @@ class ViewController: UIViewController {
     
     var seikaisu = 0
     
-    
-    var soundTable:String
+    //var soundTable:String
     
     var player:AVAudioPlayer!
     
@@ -37,7 +36,7 @@ class ViewController: UIViewController {
         mondai.text = "問題１、マツコとキムタクは高校１年の時、同級生であった";//mondaiに入力
         
        // [self.soundTable = "sei", "fusei"];
-        var soundTableArray = [ "sei", "fusei"]//soundTable配列を作成
+      //var soundTableArray = [ "s", "f"]//soundTable配列を作成
         
     }
 
@@ -174,7 +173,7 @@ class ViewController: UIViewController {
     var musicName:String = "shot-struck1";
         //ダウンロードしたファイル
         //[self playSound:musicName];
-        self.playsound(musicName);
+        self.playSound(musicName);
         
     }
 
@@ -187,7 +186,7 @@ class ViewController: UIViewController {
     var string:String = "bomb1";
         //不正解時の音声ファイルを鳴らす
         //[self playSound:string];//objective c
-       self.playsound(String);
+       self.playSound(String);
         
 }
 
