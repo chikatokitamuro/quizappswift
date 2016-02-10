@@ -186,7 +186,7 @@ class ViewController:UIViewController,AVAudioPlayerDelegate{
     var string:String = "bomb1";
         //不正解時の音声ファイルを鳴らす
         //[self playSound:string];//objective c
-       self.playSound(String);
+       self.playSound(string);
         
 }
 
