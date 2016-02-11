@@ -34,16 +34,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正解率" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bs4-Ge-FmY">
-                                <rect key="frame" x="174" y="365" width="252" height="29"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="29" id="IzH-Wl-2Bi"/>
-                                    <constraint firstAttribute="width" constant="252" id="x8b-bw-9Hj"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1MI-k7-zOF">
                                 <rect key="frame" x="178" y="126" width="73" height="82"/>
                                 <constraints>
@@ -68,6 +58,16 @@
                                     <action selector="pekebuttunaction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fBY-MA-YVv"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正解率" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bs4-Ge-FmY">
+                                <rect key="frame" x="174" y="365" width="252" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="IzH-Wl-2Bi"/>
+                                    <constraint firstAttribute="width" constant="252" id="x8b-bw-9Hj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.85839307308197021" green="0.9188077449798584" blue="0.57945233583450317" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -93,10 +93,8 @@
                     <connections>
                         <outlet property="kaitou" destination="zxe-gz-foE" id="OzD-Rc-eMP"/>
                         <outlet property="marubuttun" destination="1MI-k7-zOF" id="3BX-1A-t1P"/>
-                        <outlet property="maruoshi" destination="1MI-k7-zOF" id="cGH-FA-6xg"/>
                         <outlet property="mondai" destination="trR-Bd-CHH" id="esj-fj-098"/>
                         <outlet property="pekebuttun" destination="E4g-6R-62Z" id="xS8-FV-3rI"/>
-                        <outlet property="pekeoshi" destination="E4g-6R-62Z" id="fDT-H6-qrv"/>
                         <outlet property="seikairitu" destination="bs4-Ge-FmY" id="SBK-Ub-3C9"/>
                     </connections>
                 </viewController>
