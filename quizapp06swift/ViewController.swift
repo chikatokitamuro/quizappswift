@@ -23,7 +23,7 @@ class ViewController:UIViewController,AVAudioPlayerDelegate{
     
     var countNumber = 0//問題の順番　最初の問題は０番目　case 0
     
-    var seikaisu = 0
+    var seikaisu:Float = 0
     
     //var soundTable:String
     
@@ -45,36 +45,10 @@ class ViewController:UIViewController,AVAudioPlayerDelegate{
         
     }
 
-   /* func playSound(scaleName:NSString){
-    //音楽ファイル名を作成
-    /*NSString *soundFileName = [NSString stringWithFormat:@"koukaonn_%@",scaleName];*/
-    let soundFileName = "koukaonn"
-
-    //音楽ファイルのファイルパス(音楽ファイルがデータ上どこにあるか)を作成
-    //NSBundle *bundle = [NSBundle mainBundle];
-    let bundle = NSBundle.mainBundle()
-    var path:String = "mp3"
-    //NSString *path = [bundle pathForResource:scaleName
-        //ofType:@"mp3"];
-
-    //NSURL *url = [NSURL fileURLWithPath:path];
-    let url = NSURL.fileURLWithPath(path)
-        
-    //エラーを受け取る変数の準備
-    //NSError *error = nil;
-    var error:String? = nil
-    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
-    if (error != nil) { //エラーがあった場合
-    return;
-    }
-        
-    [self.player play];
-        
-    }*/
     
     
     func playSound(scaleName: String) {
-        let soundFileName = "koukaonn\(scaleName)"
+        let soundFileName = "\(scaleName)"
         let bundle = NSBundle.mainBundle()
         let path = bundle.pathForResource(soundFileName, ofType: "mp3")
         let url = NSURL(fileURLWithPath:path!)
@@ -84,18 +58,6 @@ class ViewController:UIViewController,AVAudioPlayerDelegate{
     }
     
     
-    /*func playSound(scaleName: String) {
-        var soundFileName = "koukaonn\(scaleName)"
-        var bundle = NSBundle.mainBundle()
-        var path = bundle.pathForResource(soundFileName, ofType: "mp3")
-        var url = NSURL(fileURLWithPath:path!)
-        var error:String? = nil
-        self.player = AVAudioPlayer(contentsOfURL: url, error: &error)
-        if error != nil {
-            return
-        }
-        self.player.play()
-    }*/
     
     
     @IBAction func marubuttunaction(sender: AnyObject) {
@@ -168,9 +130,9 @@ class ViewController:UIViewController,AVAudioPlayerDelegate{
     func seikai() {
     // 正解だった時の処理
     kaitou.text = "正解です"
-    seikairitu.text = "正解率は\(seikaisu/5*100)です"
+    seikairitu.text = "正解率は\(seikaisu/5*100)%です"
     //正解時の音声ファイルを鳴らす
-    var musicName:String = "shot-struck1";
+    let musicName:String = "shot-struck1";
         //ダウンロードしたファイル
         //[self playSound:musicName];
         self.playSound(musicName);
@@ -183,7 +145,7 @@ class ViewController:UIViewController,AVAudioPlayerDelegate{
     func fuseikai() {
     // 不正解だった時の処理
     kaitou.text = "不正解です"
-    var string:String = "bomb1";
+    let string:String = "bomb1";
         //不正解時の音声ファイルを鳴らす
         //[self playSound:string];//objective c
        self.playSound(string);
