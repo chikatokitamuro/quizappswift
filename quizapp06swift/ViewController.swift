@@ -68,27 +68,27 @@ class ViewController:UIViewController,AVAudioPlayerDelegate{
             //[self seikai];//seikai時の処置を呼び出す
             seikai()
             seikaisu++;//seikaisuを一つカウントする
-            break;
+            
         case 1:
             //[self seikai];
             seikai()
             seikaisu++;
-            break;
+            
         case 2:
             //[self fuseikai];//fuseikai時の処置を呼び出す
             fuseikai()
-            break;
+            
         case 3:
             //[self seikai];
             seikai()
             seikaisu++;
-            break;
+            
         case 4:
             //[self fuseikai];
             fuseikai()
-            break;
+            
         default:
-            break;
+            return
     }
         // 正解でも不正解でも、次の問いに進む
         countNumber++;
@@ -103,23 +103,23 @@ class ViewController:UIViewController,AVAudioPlayerDelegate{
         case 0:
             //[self fuseikai];
             fuseikai()//不正解時の処理を呼び出す
-            break;
+            
         case 1:
             fuseikai()
-            break;
+            
         case 2:
             seikai()
             seikaisu++;
-            break;
+            
         case 3:
             fuseikai()
-            break;
+            
         case 4:
             seikai()
             seikaisu++;
-            break;
+            
         default:
-            break;
+            return
         }
         
         countNumber++;
@@ -158,21 +158,21 @@ class ViewController:UIViewController,AVAudioPlayerDelegate{
             switch (countNumber) {
             case 0:
                 mondai.text = "問題１、マツコとキムタクは高校１年の時、同級生であった"
-                break;
+                
             case 1:
                 mondai.text = "問題2、一富士二鷹三茄子の次は四扇子、五煙草、六座頭である"
-                break;
+                
             case 2:
                 mondai.text = "問題3、首無しのニワトリマイクは１８日間生きた"
-                break;
+                
             case 3:
                 mondai.text = "問題4、クマムシは宇宙空間でも死なない"
-                break;
+                
             case 4:
                 mondai.text = "問題5、唾液は無菌状態であるため、消毒にも使用できる"
-                break;
+            
             default:
-                break;
+             return
             }
         }
 
