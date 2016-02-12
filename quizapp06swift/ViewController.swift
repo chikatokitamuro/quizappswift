@@ -65,23 +65,22 @@ class ViewController:UIViewController,AVAudioPlayerDelegate{
         switch  (countNumber) {
         case 0:
             // 最初の問題は丸が正解なので、正解扱いにする
+            seikaisu++;//seikaisuを一つカウントする
             //[self seikai];//seikai時の処置を呼び出す
             seikai()
-            seikaisu++;//seikaisuを一つカウントする
-            
         case 1:
+            seikaisu++;
             //[self seikai];
             seikai()
-            seikaisu++;
             
         case 2:
             //[self fuseikai];//fuseikai時の処置を呼び出す
             fuseikai()
             
         case 3:
+            seikaisu++;
             //[self seikai];
             seikai()
-            seikaisu++;
             
         case 4:
             //[self fuseikai];
@@ -108,15 +107,15 @@ class ViewController:UIViewController,AVAudioPlayerDelegate{
             fuseikai()
             
         case 2:
-            seikai()
             seikaisu++;
+            seikai()
             
         case 3:
             fuseikai()
             
         case 4:
-            seikai()
             seikaisu++;
+            seikai()
             
         default:
             return
